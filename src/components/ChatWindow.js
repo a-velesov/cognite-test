@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ChatWindow({ friendId, messages, sendMessage }) {
+function ChatWindow({ friendId, friendName, messages, sendMessage }) {
     const [input, setInput] = useState('');
 
     const handleSend = () => {
@@ -18,7 +18,7 @@ function ChatWindow({ friendId, messages, sendMessage }) {
 
     return (
         <div className="chat-window">
-            <h2>Chat with {friendId}</h2>
+            <h2>Chat with {friendName}</h2>
             <div className="messages">
                 {messages.map((msg, index) => (
                     <div key={index}>{msg}</div>

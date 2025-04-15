@@ -25,12 +25,15 @@ function App() {
     setMessages(newMessages);
   };
 
+  const selectedFriendName = friends.find((friend) => friend.id === selectedFriend)?.name || '';
+
   return (
       <div className="app">
         <FriendList friends={friends} selectFriend={selectFriend} />
         {selectedFriend && (
             <ChatWindow
                 friendId={selectedFriend}
+                friendName={selectedFriendName}
                 messages={messages[selectedFriend] || []}
                 sendMessage={sendMessage}
             />
