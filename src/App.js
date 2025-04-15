@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FriendList from './components/FriendList';
+import ChatWindow from './components/ChatWindow';
 import './App.css';
 
 function App() {
@@ -28,16 +29,11 @@ function App() {
       <div className="app">
         <FriendList friends={friends} selectFriend={selectFriend} />
         {selectedFriend && (
-            <div className="chat-window">
-              <h2>Chat with {selectedFriend}</h2>
-              <div className="messages">
-                {messages[selectedFriend].map((msg, index) => (
-                    <div key={index}>{msg}</div>
-                ))}
-              </div>
-              <input type="text" />
-              <button>Send</button>
-            </div>
+            <ChatWindow
+                friendId={selectedFriend}
+                messages={messages[selectedFriend] || []}
+                sendMessage={sendMessage}
+            />
         )}
       </div>
   );
