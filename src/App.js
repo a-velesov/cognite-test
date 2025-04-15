@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FriendList from './components/FriendList';
 import './App.css';
 
 function App() {
@@ -25,16 +26,7 @@ function App() {
 
   return (
       <div className="app">
-        <div className="friend-list">
-          <h2>Friends</h2>
-          <ul>
-            {friends.map((friend) => (
-                <li key={friend.id} onClick={() => selectFriend(friend.id)}>
-                  {friend.name}
-                </li>
-            ))}
-          </ul>
-        </div>
+        <FriendList friends={friends} selectFriend={selectFriend} />
         {selectedFriend && (
             <div className="chat-window">
               <h2>Chat with {selectedFriend}</h2>
