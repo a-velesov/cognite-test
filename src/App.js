@@ -9,7 +9,7 @@ function App() {
     { id: 2, name: 'Bob' },
     { id: 3, name: 'Charlie' },
   ]);
-  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [selectedFriend, setSelectedFriend] = useState(1);
   const [messages, setMessages] = useState({});
 
   const selectFriend = (friendId) => {
@@ -29,7 +29,7 @@ function App() {
 
   return (
       <div className="app">
-        <FriendList friends={friends} selectFriend={selectFriend} />
+        <FriendList friends={friends} selectFriend={selectFriend} selectedFriend={selectedFriend} />
         {selectedFriend && (
             <ChatWindow
                 friendId={selectedFriend}
